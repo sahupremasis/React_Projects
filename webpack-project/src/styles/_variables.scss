@@ -1,5 +1,13 @@
-$bg: rgb(236, 243, 242);
+$bg: rgb(110, 209, 194);
 
 :root {
   --text: #222;
+}
+
+.hero {
+  background: url("../images/react-banner.jpeg");
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  width: 100%;
 }

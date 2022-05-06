@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let mode = "development";
 let target = "web";
@@ -22,6 +23,10 @@ module.exports = {
           "postcss-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset",
       },
       {
         test: /\.jsx?$/,

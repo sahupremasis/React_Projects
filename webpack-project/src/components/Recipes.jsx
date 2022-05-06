@@ -1,14 +1,40 @@
-const elvenShield = {
-    leatherStrips : 2,
-    ironIngot: 1,
-    refinedMoonstone: 4
-}
+import { useState } from "react";
+import sword from "../images/swc-sword.png";
+import swordSvg from "../images/sword.svg";
 
-const myRecipie = {
-    ...elvenShield,
-    leather: 1,
-    refinedMoonstone: 4
-}
+const elvenShieldRecipe = {
+  leatherStrips: 2,
+  ironIngot: 1,
+  refinedMoonstone: 4,
+};
 
-console.log(elvenShield);
-console.log(myRecipie);
+// ES7 Object spread example
+const elvenGauntletsRecipe = {
+  ...elvenShieldRecipe,
+  leather: 1,
+  refinedMoonstone: 1,
+};
+
+const Recipes = () => {
+  const [recipe, setRecipe] = useState(elvenShieldRecipe);
+
+  return (
+    <div>
+      <h3>Current Recipe:</h3>
+      <button onClick={() => setRecipe(elvenShieldRecipe)}>Elven Shield</button>
+      <button onClick={() => setRecipe(elvenGauntletsRecipe)}>
+        Elven Gauntlets
+      </button>
+
+      <ul>
+        {Object.keys(recipe).map((material) => (
+          <li key={material}>
+            {material}: {recipe[material]}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Recipes;
